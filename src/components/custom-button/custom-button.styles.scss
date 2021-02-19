@@ -1,6 +1,6 @@
 .custom-button {
   background-color: black;
-  border: none;
+  border: 1px solid transparent;
   color: white;
   cursor: pointer;
   font-family: 'Open Sans Condensed';
@@ -16,7 +16,18 @@
 
   &:hover {
     background-color: white;
-    border: 1px solid black;
+    border-color: black;
     color: black;
+  }
+
+  &.google-sign-in {
+    background-color: #4285f4;
+    border: 1px solid #4285f4;
+    color: white;
+
+    &:hover{
+      background-color: #357ae8;
+      border-color:  #357ae8;
+    }
   }
 }
