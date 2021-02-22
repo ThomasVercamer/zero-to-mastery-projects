@@ -23,4 +23,26 @@ const config = {
 
   export const signInWithGoogle = () => auth.signInWithPopup(provider);
 
+  export const createUserProfileDocument = async (userAuth, additionalData) => {
+      if(!userAuth) return; // Don't do anything if there is no userAuth (meaning they signed out)
+      const userRef = firestore.doc(`users/${userAuth.uid}`);
+      const userSnapshot = await userRef.get();
+
+      // This code checks if there is an existing document based on the user
+      // If not --> create that document
+      if(!userSnapshot.exists){
+          const {displayName, email} = userAuth;
+          const createdAt = new Date();
+
+          try{
+              await userRef.set({displayName, email, createdAt, ...additionalData});
+          } catch(error){
+              // Handle error
+              console.error('Error creating user', error.message);
+          }
+      }
+      
+      return userRef;
+  }
+
   export default firebase;
