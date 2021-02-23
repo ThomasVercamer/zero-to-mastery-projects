@@ -3,10 +3,12 @@
   border: 1px solid transparent;
   color: white;
   cursor: pointer;
+  display: flex;
   font-family: 'Open Sans Condensed';
   font-size: 15px;
   font-weight: bolder;
   height: 50px;
+  justify-content: center;
   letter-spacing: 0.5px;
   line-height: 50px;
   min-width: 165px;
@@ -28,6 +30,28 @@
     &:hover{
       background-color: #357ae8;
       border-color:  #357ae8;
+    }
+  }
+
+  &.inverted {
+    background-color: white;
+    border-color: black;
+    color: black;
+
+    &:hover {
+      background-color: black;
+      border: 1px solid transparent;
+      color: white;
+    }
+
+    &.google-sign-in{
+      background-color: #357ae8;
+      border-color:  #357ae8;
+
+      &:hover{
+        background-color: #4285f4;
+        border: 1px solid #4285f4;
+      }
     }
   }
 }
